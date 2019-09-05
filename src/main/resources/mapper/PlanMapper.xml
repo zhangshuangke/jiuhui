@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bgs.boot0828.mapper.DataMapper">
+    <insert id="addPlan" parameterType="forecast">
+        insert into tb_forecast values (null, #{planName}, #{planTable}, #{begintime}, #{endtime})
+    </insert>
+
+    <select id="findPlanAll" resultType="forecast">
+        select *from tb_forecast
+    </select>
+
+    <insert id="addActiveData" parameterType="activeData" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_activedata (forecast_id, actual_num, new_client, old_client, potential_client, money,  activity_time, user_id) values
+        (#{forecastId},#{actualNum},#{newClient},#{oldClient},#{potentialClient},#{money},#{activityTime},#{userId})
+    </insert>
+    <insert id="addPicture" parameterType="gallery">
+        insert into tb_gallery values (null,#{activeId}, #{name}, #{url}, now()) ;
+    </insert>
+</mapper>

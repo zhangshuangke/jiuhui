@@ -1,0 +1,32 @@
+spring:
+  mvc:
+    static-path-pattern: /**
+    view:
+      suffix: .jsp
+      prefix: /jsps/
+  devtools:
+    restart:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/project3
+server:
+  jsp-servlet:
+    init-parameters:
+      development: true
+  port: 8088
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    lazy-loading-enabled: false
+  type-aliases-package: com.bgs.boot0828.pojo
+logging:
+  level:
+    com.bgs.boot0828.mapper: debug
+#自定义配置路径
+path: E://image
